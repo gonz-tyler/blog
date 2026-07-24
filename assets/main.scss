@@ -55,6 +55,7 @@ h1 {
   font-family: var(--serif);
   color: var(--rust);
   font-size: clamp(3rem, 6vw, 5rem);
+  font-style: italic;
 }
 h2,
 h3,
@@ -112,6 +113,7 @@ a:hover {
   font-size: 2rem;
   color: var(--rust);
   margin-top: 3rem;
+  font-style: italic;
 }
 
 /* --- Home page layout --- */
