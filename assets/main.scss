@@ -51,7 +51,10 @@ body::before {
 }
 
 /* --- TYPOGRAPHY & LINKS --- */
-h1,
+h1 {
+  font-family: var(--serif);
+  color: var(--rust);
+}
 h2,
 h3,
 h4,
