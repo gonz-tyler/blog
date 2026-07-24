@@ -1,9 +1,5 @@
 ---
 ---
-
-@charset "utf-8";
-
-@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Bebas+Neue&display=swap");
 @import "minima";
 
 /* --- GONZ TYLER PORTFOLIO VARIABLES --- */
@@ -51,18 +47,20 @@ body::before {
 }
 
 /* --- TYPOGRAPHY & LINKS --- */
-h1 {
-  font-family: var(--serif);
-  color: var(--rust);
-}
+h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: var(--display);
+  /* Changed from block letters to serif */
+  font-family: var(--serif); 
   color: var(--black);
   letter-spacing: 0.02em;
+}
+
+h1 {
+  color: var(--rust);
 }
 
 a {
@@ -93,6 +91,7 @@ a:hover {
 }
 
 .post-title {
+  /* Changed to serif */
   font-family: var(--serif);
   color: var(--rust);
   font-size: clamp(3rem, 6vw, 5rem);
@@ -190,7 +189,8 @@ a:hover {
   justify-content: center;
 }
 .featured-post-title {
-  font-family: var(--display);
+  /* Changed from block letters to serif */
+  font-family: var(--serif);
   font-size: clamp(2.2rem, 4vw, 3.5rem);
   line-height: 0.95;
   margin: 0.75rem 0 1rem;
@@ -228,14 +228,15 @@ a:hover {
   color: var(--rust);
 }
 .post-link {
-  font-family: var(--display);
+  /* Changed from block letters to serif */
+  font-family: var(--serif);
   font-size: 1.5rem;
   letter-spacing: 0.02em;
   margin: 0.25rem 0 0;
   transition: color 0.15s ease;
 }
 
-/* --- Nav (moved from inline styles so media queries work) --- */
+/* --- Nav --- */
 .site-nav {
   position: sticky;
   top: 0;
