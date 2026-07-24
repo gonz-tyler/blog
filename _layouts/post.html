@@ -1,0 +1,62 @@
+---
+layout: default
+---
+
+<article class="page-content">
+  <header class="post-header">
+    <h1 class="post-title">{{ page.title | escape }}</h1>
+
+    <!-- Dynamically show Chapter number for the narrative, or Date for regular posts -->
+    <p class="post-meta">
+      {% if page.chapter %} Chapter {{ page.chapter }} {% else %} {{ page.date |
+      date: "%B %-d, %Y" }} {% endif %}
+    </p>
+  </header>
+
+  <div class="post-content">{{ content }}</div>
+
+  <!-- Styling for the Brutalist Navigation Arrows -->
+  <style>
+    .post-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 4rem;
+      border-top: 2px solid var(--black);
+      padding-top: 2rem;
+    }
+    .post-nav-btn {
+      font-family: var(--mono);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      text-decoration: none !important;
+      color: var(--black) !important;
+      border: 2px solid var(--black);
+      padding: 0.75rem 1.5rem;
+      transition: all 0.15s ease;
+    }
+    .post-nav-btn:hover {
+      background: var(--acid);
+      color: var(--black) !important;
+    }
+    /* Hide the button on mobile if it doesn't exist to keep layout clean */
+    .post-nav-empty {
+      width: 10px;
+    }
+  </style>
+
+  <!-- The Navigation Logic -->
+  <div class="post-nav">
+    {% if page.previous %}
+    <a href="{{ page.previous.url | relative_url }}" class="post-nav-btn"
+      >← Previous</a
+    >
+    {% else %}
+    <div class="post-nav-empty"></div>
+    {% endif %} {% if page.next %}
+    <a href="{{ page.next.url | relative_url }}" class="post-nav-btn">Next →</a>
+    {% else %}
+    <div class="post-nav-empty"></div>
+    {% endif %}
+  </div>
+</article>
