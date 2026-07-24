@@ -1,14 +1,11 @@
 ---
-# Only the main Sass file needs front matter (the dashes are important)
 ---
+@charset "utf-8";
 
-// Import Google Fonts
-@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Bebas+Neue&display=swap');
-
-// Import default Minima base
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Bebas+Neue&display=swap");
 @import "minima";
 
-// --- GONZ TYLER PORTFOLIO VARIABLES ---
+/* --- GONZ TYLER PORTFOLIO VARIABLES --- */
 :root {
   --cream: #f5f0e8;
   --black: #0d0d0a;
@@ -22,7 +19,7 @@
   --display: "Bebas Neue", sans-serif;
 }
 
-// --- BASE OVERRIDES ---
+/* --- BASE OVERRIDES --- */
 body {
   background: var(--cream);
   color: var(--black);
@@ -30,22 +27,21 @@ body {
   font-size: 14px;
   line-height: 1.6;
   cursor: crosshair;
-  
-  // The scanline overlay
-  &::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: repeating-linear-gradient(
-      to bottom,
-      transparent 0px,
-      transparent 3px,
-      rgba(0, 0, 0, 0.03) 3px,
-      rgba(0, 0, 0, 0.03) 4px
-    );
-    pointer-events: none;
-    z-index: 9999;
-  }
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent 0px,
+    transparent 3px,
+    rgba(0, 0, 0, 0.03) 3px,
+    rgba(0, 0, 0, 0.03) 4px
+  );
+  pointer-events: none;
+  z-index: 9999;
 }
 
 ::selection {
@@ -53,7 +49,7 @@ body {
   color: var(--black);
 }
 
-// --- TYPOGRAPHY & LINKS ---
+/* --- TYPOGRAPHY & LINKS --- */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--display);
   color: var(--black);
@@ -64,31 +60,27 @@ a {
   color: var(--black);
   text-decoration: underline;
   text-decoration-color: var(--gray);
-  
-  &:hover {
-    background: var(--acid);
-    color: var(--black);
-    text-decoration: none;
-  }
 }
 
-// --- JEKYLL SPECIFIC LAYOUT OVERRIDES ---
+a:hover {
+  background: var(--acid);
+  color: var(--black);
+  text-decoration: none;
+}
 
-// The main content wrapper
+/* --- JEKYLL SPECIFIC LAYOUT OVERRIDES --- */
 .page-content {
   padding: 4rem 2.5rem;
   max-width: 900px;
   margin: 0 auto;
 }
 
-// Blog Post Titles
 .post-title {
   font-size: clamp(3rem, 6vw, 5rem);
   line-height: 0.9;
   margin-bottom: 1rem;
 }
 
-// Blog Post Meta (Date)
 .post-meta {
   font-family: var(--mono);
   font-size: 0.7rem;
@@ -98,17 +90,16 @@ a {
   margin-bottom: 2.5rem;
 }
 
-// The Post Content
 .post-content {
   font-family: var(--mono);
   font-size: 0.85rem;
   line-height: 1.8;
   color: var(--gray);
-  
-  h2 {
-    font-family: var(--serif);
-    font-size: 2rem;
-    color: var(--rust);
-    margin-top: 3rem;
-  }
+}
+
+.post-content h2 {
+  font-family: var(--serif);
+  font-size: 2rem;
+  color: var(--rust);
+  margin-top: 3rem;
 }
