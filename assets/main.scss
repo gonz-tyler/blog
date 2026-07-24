@@ -78,6 +78,14 @@ a:hover {
 }
 
 /* --- JEKYLL SPECIFIC LAYOUT OVERRIDES --- */
+.page-heading {
+  font-family: var(--serif);
+  color: var(--rust);
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 0.9;
+  margin-bottom: 1rem;
+}
+
 .page-content {
   padding: 4rem 2.5rem;
   max-width: 900px;
