@@ -1,25 +1,16 @@
-<nav style="position: sticky; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1rem 2.5rem; background: var(--cream); border-bottom: 2px solid var(--black);">
-  
+<nav class="site-nav">
   <!-- Logo now links to your Blog home screen -->
-  <a href="{{ '/' | relative_url }}" class="nav-logo" style="font-family: var(--display); font-size: 1.8rem; letter-spacing: 0.05em; text-decoration: none; color: var(--black);">
-    G<span style="color: var(--rust);">_</span>T
+  <a href="{{ '/' | relative_url }}" class="nav-logo">
+    G<span class="nav-logo-accent">_</span>T
   </a>
 
-  <ul class="nav-links" style="display: flex; gap: 2rem; list-style: none; margin: 0; padding: 0;">
-    <li>
-      <a href="{{ '/' | relative_url }}" style="font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; text-decoration: none; color: var(--black);">
-        Blog
-      </a>
-    </li>
-    <li>
-      <a href="https://gonztyler.com" style="font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; text-decoration: none; color: var(--black);">
-        Portfolio
-      </a>
-    </li>
+  <ul class="nav-links">
+    <li><a href="{{ '/' | relative_url }}">Blog</a></li>
+    <li><a href="https://gonztyler.com">Portfolio</a></li>
   </ul>
 
-  <div class="nav-status" style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.65rem; color: var(--gray); letter-spacing: 0.1em; font-family: var(--mono);">
-    <span style="width: 7px; height: 7px; border-radius: 50%; background: #22c55e;"></span>
+  <div class="nav-status">
+    <span class="nav-status-dot"></span>
     Writing
   </div>
 </nav>
