@@ -1,0 +1,114 @@
+---
+# Only the main Sass file needs front matter (the dashes are important)
+---
+
+// Import Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Bebas+Neue&display=swap');
+
+// Import default Minima base
+@import "minima";
+
+// --- GONZ TYLER PORTFOLIO VARIABLES ---
+:root {
+  --cream: #f5f0e8;
+  --black: #0d0d0a;
+  --acid: #c8ff00;
+  --rust: #c84b2f;
+  --blue: #1a1aff;
+  --gray: #6b6b6b;
+  --border: #0d0d0a;
+  --mono: "Space Mono", monospace;
+  --serif: "DM Serif Display", serif;
+  --display: "Bebas Neue", sans-serif;
+}
+
+// --- BASE OVERRIDES ---
+body {
+  background: var(--cream);
+  color: var(--black);
+  font-family: var(--mono);
+  font-size: 14px;
+  line-height: 1.6;
+  cursor: crosshair;
+  
+  // The scanline overlay
+  &::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+      to bottom,
+      transparent 0px,
+      transparent 3px,
+      rgba(0, 0, 0, 0.03) 3px,
+      rgba(0, 0, 0, 0.03) 4px
+    );
+    pointer-events: none;
+    z-index: 9999;
+  }
+}
+
+::selection {
+  background: var(--acid);
+  color: var(--black);
+}
+
+// --- TYPOGRAPHY & LINKS ---
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--display);
+  color: var(--black);
+  letter-spacing: 0.02em;
+}
+
+a {
+  color: var(--black);
+  text-decoration: underline;
+  text-decoration-color: var(--gray);
+  
+  &:hover {
+    background: var(--acid);
+    color: var(--black);
+    text-decoration: none;
+  }
+}
+
+// --- JEKYLL SPECIFIC LAYOUT OVERRIDES ---
+
+// The main content wrapper
+.page-content {
+  padding: 4rem 2.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+// Blog Post Titles
+.post-title {
+  font-size: clamp(3rem, 6vw, 5rem);
+  line-height: 0.9;
+  margin-bottom: 1rem;
+}
+
+// Blog Post Meta (Date)
+.post-meta {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--gray);
+  margin-bottom: 2.5rem;
+}
+
+// The Post Content
+.post-content {
+  font-family: var(--mono);
+  font-size: 0.85rem;
+  line-height: 1.8;
+  color: var(--gray);
+  
+  h2 {
+    font-family: var(--serif);
+    font-size: 2rem;
+    color: var(--rust);
+    margin-top: 3rem;
+  }
+}
