@@ -1,6 +1,9 @@
 ---
 ---
 
+@charset "utf-8";
+
+@import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Bebas+Neue&display=swap");
 @import "minima";
 
 /* --- GONZ TYLER PORTFOLIO VARIABLES --- */
@@ -47,8 +50,11 @@ body::before {
   color: var(--black);
 }
 
-/* --- TYPOGRAPHY & LINKS (Default to Block Letters) --- */
-h1,
+/* --- TYPOGRAPHY & LINKS --- */
+h1 {
+  font-family: var(--serif);
+  color: var(--rust);
+}
 h2,
 h3,
 h4,
@@ -72,43 +78,16 @@ a:hover {
 }
 
 /* --- JEKYLL SPECIFIC LAYOUT OVERRIDES --- */
-
 .page-content {
   padding: 4rem 2.5rem;
   max-width: 900px;
   margin: 0 auto;
 }
 
-/* 1. Landing Page Title */
-.page-heading {
-  font-family: var(--serif);
-  color: var(--rust);
+.post-title {
   font-size: clamp(3rem, 6vw, 5rem);
   line-height: 0.9;
-  margin-bottom: 2rem;
-}
-
-/* 2. Individual Post Titles (and Post Links on the Landing Page) */
-.post-title,
-.post-link {
-  font-family: var(--serif);
-  color: var(--rust);
-  font-size: clamp(2.5rem, 6vw, 4.5rem);
-  line-height: 0.9;
   margin-bottom: 1rem;
-  display: block;
-}
-
-.post-link {
-  font-size: 2rem;
-  color: var(--black);
-  margin-bottom: 0.25rem;
-  text-decoration: none;
-}
-
-.post-link:hover {
-  color: var(--rust);
-  background: transparent;
 }
 
 .post-meta {
@@ -118,7 +97,6 @@ a:hover {
   text-transform: uppercase;
   color: var(--gray);
   margin-bottom: 2.5rem;
-  display: block;
 }
 
 .post-content {
@@ -129,23 +107,125 @@ a:hover {
 }
 
 .post-content h2 {
-  font-family: var(--display);
+  font-family: var(--serif);
   font-size: 2rem;
-  color: var(--black);
+  color: var(--rust);
   margin-top: 3rem;
 }
 
-/* Post list formatting */
+/* --- Home page layout --- */
+.home {
+  padding: 4rem 2.5rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Generated patterns — no image files needed */
+.pattern-0 {
+  background: repeating-linear-gradient(
+    45deg,
+    var(--black),
+    var(--black) 10px,
+    var(--acid) 10px,
+    var(--acid) 20px
+  );
+}
+.pattern-1 {
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--black),
+    var(--black) 10px,
+    var(--rust) 10px,
+    var(--rust) 20px
+  );
+}
+.pattern-2 {
+  background:
+    radial-gradient(circle, var(--acid) 2px, transparent 2.5px) 0 0 / 16px 16px,
+    var(--black);
+}
+.pattern-3 {
+  background: repeating-linear-gradient(
+    90deg,
+    var(--black),
+    var(--black) 8px,
+    var(--blue) 8px,
+    var(--blue) 16px
+  );
+}
+
+/* Featured post */
+.featured-post {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  border: 2px solid var(--black);
+  text-decoration: none;
+  color: var(--black);
+  margin-bottom: 3rem;
+  transition: background 0.15s ease;
+}
+.featured-post:hover {
+  background: rgba(200, 255, 0, 0.08);
+}
+.featured-post-visual,
+.post-list-thumb {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+.featured-post-info {
+  padding: 3rem 2.5rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.featured-post-title {
+  font-family: var(--display);
+  font-size: clamp(2.2rem, 4vw, 3.5rem);
+  line-height: 0.95;
+  margin: 0.75rem 0 1rem;
+}
+.featured-post-excerpt {
+  font-size: 0.8rem;
+  color: var(--gray);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+.featured-post-cta {
+  font-family: var(--mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* Post list below */
 .post-list {
   list-style: none;
   margin: 0;
 }
 .post-list > li {
   border-bottom: 1px solid rgba(13, 13, 10, 0.15);
+}
+.post-list-item {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
   padding: 1.5rem 0;
+  text-decoration: none;
+  color: var(--black);
+}
+.post-list-item:hover .post-link {
+  color: var(--rust);
+}
+.post-link {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  letter-spacing: 0.02em;
+  margin: 0.25rem 0 0;
+  transition: color 0.15s ease;
 }
 
-/* --- Nav --- */
+/* --- Nav (moved from inline styles so media queries work) --- */
 .site-nav {
   position: sticky;
   top: 0;
@@ -217,5 +297,37 @@ a:hover {
   .nav-links a {
     font-size: 0.62rem;
     letter-spacing: 0.1em;
+  }
+
+  .home {
+    padding: 2rem 1.25rem;
+  }
+
+  .featured-post {
+    grid-template-columns: 1fr;
+  }
+  .featured-post-visual {
+    min-height: 180px;
+  }
+  .featured-post-info {
+    padding: 1.75rem 1.5rem;
+  }
+  .featured-post-title {
+    font-size: clamp(1.8rem, 8vw, 2.5rem);
+  }
+  .featured-post-excerpt {
+    font-size: 0.75rem;
+  }
+
+  .post-list-item {
+    gap: 1rem;
+    padding: 1.25rem 0;
+  }
+  .post-list-thumb {
+    width: 56px;
+    height: 56px;
+  }
+  .post-link {
+    font-size: 1.15rem;
   }
 }
