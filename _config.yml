@@ -1,10 +1,15 @@
 title: "blogonz"
 description: A clean and minimal blog hosted on GitHub Pages.
-baseurl: "" 
-url: "https://blog.gonztyler.com" 
+baseurl: ""
+url: "https://blog.gonztyler.com"
 
 markdown: kramdown
 theme: minima
 plugins:
   - jekyll-feed
   - jekyll-seo-tag
+
+collections:
+  blackout:
+    output: true
+    permalink: /projects/blackout/:path/
