@@ -1,0 +1,57 @@
+---
+layout: default
+---
+
+<div class="home">
+  {%- if page.title -%}
+  <h1 class="page-heading">{{ page.title }}</h1>
+  {%- endif -%} {{ content }} {%- if site.posts.size > 0 -%} {%- assign
+  date_format = site.minima.date_format | default: "%b %-d, %Y" -%} {%- assign
+  featured = site.posts.first -%} {%- assign rest = site.posts | offset: 1 -%}
+
+  <a class="featured-post" href="{{ featured.url | relative_url }}">
+    {%- if featured.image -%}
+    <img
+      src="{{ featured.image | relative_url }}"
+      class="featured-post-visual"
+      alt="{{ featured.title | escape }}"
+    />
+    {%- else -%}
+    <div class="featured-post-visual pattern-0"></div>
+    {%- endif -%}
+    <div class="featured-post-info">
+      <span class="post-meta">{{ featured.date | date: date_format }}</span>
+      <h2 class="featured-post-title">{{ featured.title | escape }}</h2>
+      {%- if featured.excerpt -%}
+      <p class="featured-post-excerpt">
+        {{ featured.excerpt | strip_html | truncatewords: 28 }}
+      </p>
+      {%- endif -%}
+      <span class="featured-post-cta">Read Post →</span>
+    </div>
+  </a>
+
+  {%- if rest.size > 0 -%}
+  <ul class="post-list">
+    {%- for post in rest -%} {%- assign pattern = forloop.index | modulo: 4 -%}
+    <li>
+      <a href="{{ post.url | relative_url }}" class="post-list-item">
+        {%- if post.image -%}
+        <img
+          src="{{ post.image | relative_url }}"
+          class="post-list-thumb"
+          alt="{{ post.title | escape }}"
+        />
+        {%- else -%}
+        <div class="post-list-thumb pattern-{{ pattern }}"></div>
+        {%- endif -%}
+        <div class="post-list-item-info">
+          <span class="post-meta">{{ post.date | date: date_format }}</span>
+          <h3 class="post-link">{{ post.title | escape }}</h3>
+        </div>
+      </a>
+    </li>
+    {%- endfor -%}
+  </ul>
+  {%- endif -%} {%- endif -%}
+</div>
