@@ -1,5 +1,6 @@
 ---
 ---
+
 @charset "utf-8";
 
 @import url("https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&family=DM+Serif+Display:ital@0;1&family=Bebas+Neue&display=swap");
@@ -50,7 +51,12 @@ body::before {
 }
 
 /* --- TYPOGRAPHY & LINKS --- */
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: var(--display);
   color: var(--black);
   letter-spacing: 0.02em;
@@ -102,4 +108,36 @@ a:hover {
   font-size: 2rem;
   color: var(--rust);
   margin-top: 3rem;
+}
+
+.home {
+  padding: 4rem 2.5rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.post-list {
+  list-style: none;
+  margin: 0;
+}
+
+.post-list > li {
+  border-bottom: 1px solid rgba(13, 13, 10, 0.15);
+  padding: 2rem 0;
+}
+
+.post-link {
+  font-family: var(--display);
+  font-size: clamp(2rem, 4vw, 3rem);
+  color: var(--black);
+  text-decoration: none;
+  letter-spacing: 0.02em;
+}
+
+.post-link:hover {
+  color: var(--rust);
+}
+
+.post-list .post-meta {
+  margin-bottom: 0;
 }
