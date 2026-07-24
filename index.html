@@ -1,0 +1,148 @@
+---
+layout: default
+title: Home
+---
+
+<style>
+  /* --- Custom Homepage Layout Elements --- */
+
+  /* 1. Featured Post Hero Banner */
+  .featured-post-hero {
+    display: block;
+    border: 2px solid var(--black);
+    background: var(--black);
+    padding: 3rem 2.5rem;
+    text-decoration: none !important;
+    margin-bottom: 5rem;
+    transition: transform 0.15s ease;
+  }
+  .featured-post-hero:hover {
+    transform: translateY(-4px);
+    background: var(--black) !important;
+  }
+  .featured-tag {
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--acid);
+    margin-bottom: 1.5rem;
+    display: inline-block;
+  }
+  .featured-title {
+    font-family: var(--serif);
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    line-height: 1;
+    color: var(--cream);
+    margin-bottom: 1rem;
+  }
+  .featured-desc {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 0;
+    max-width: 600px;
+    line-height: 1.6;
+  }
+
+  /* 2. Collection Grid Tiles */
+  .collection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    margin-bottom: 5rem;
+  }
+  .collection-tile {
+    border: 2px solid var(--black);
+    padding: 2.5rem 2rem;
+    text-decoration: none !important;
+    color: var(--black) !important;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 220px;
+    transition: background 0.15s ease;
+  }
+  .collection-tile:hover {
+    background: var(--acid) !important;
+  }
+  .collection-title {
+    font-family: var(--display);
+    font-size: 2.5rem;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+  }
+  .collection-desc {
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--gray);
+    line-height: 1.6;
+  }
+  .collection-tile:hover .collection-desc {
+    color: var(--black);
+  }
+  .collection-cta {
+    margin-top: 2rem;
+    font-family: var(--mono);
+    font-size: 0.7rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+</style>
+
+<!-- SECTION 1: THE FEATURED POST -->
+<!-- Jekyll pulls the absolute newest post from your _posts folder -->
+{% if site.posts.size > 0 %} {% assign featured = site.posts.first %}
+<h2 class="page-heading">Latest Dispatch</h2>
+
+<a href="{{ featured.url | relative_url }}" class="featured-post-hero">
+  <span class="featured-tag">✦ Newest Post</span>
+  <h3 class="featured-title">{{ featured.title }}</h3>
+  <p class="featured-desc">
+    {{ featured.excerpt | strip_html | truncatewords: 35 }}
+  </p>
+</a>
+{% endif %}
+
+<!-- SECTION 2: THE COLLECTION TILES -->
+<!-- This loop automatically detects any custom collection you create in _config.yml -->
+<h2 class="page-heading">Series & Devlogs</h2>
+<div class="collection-grid">
+  {% for collection in site.collections %}
+  <!-- Exclude the default 'posts' collection so it only shows your custom ones -->
+  {% if collection.label != 'posts' and collection.docs.size > 0 %}
+
+  <!-- Sorts the collection and grabs Chapter 1 to link to -->
+  {% assign first_doc = collection.docs | sort: 'chapter' | first %}
+
+  <a href="{{ first_doc.url | relative_url }}" class="collection-tile">
+    <div>
+      <!-- Uses the collection name (e.g. blackout) as the big tile title -->
+      <h3 class="collection-title">{{ collection.label }}</h3>
+      <p class="collection-desc">
+        Click to begin reading the {{ collection.label }} narrative from Chapter
+        1.
+      </p>
+    </div>
+    <div class="collection-cta">Start Reading →</div>
+  </a>
+  {% endif %} {% endfor %}
+</div>
+
+<!-- SECTION 3: THE INDEPENDENT POSTS ARCHIVE -->
+<h2 class="page-heading">Archive</h2>
+<ul class="post-list">
+  <!-- The 'offset: 1' skips your newest post so it isn't listed twice on the page -->
+  {% for post in site.posts offset: 1 %}
+  <li>
+    <a class="post-link" href="{{ post.url | relative_url }}">
+      {{ post.title | escape }}
+    </a>
+    <span class="post-meta" style="margin-top: 0.5rem; display: block">
+      {{ post.date | date: "%B %-d, %Y" }}
+    </span>
+  </li>
+  {% endfor %}
+</ul>
