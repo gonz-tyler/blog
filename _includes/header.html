@@ -1,7 +1,7 @@
 <nav style="position: sticky; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1rem 2.5rem; background: var(--cream); border-bottom: 2px solid var(--black);">
   
-  <!-- Logo linking back to your main portfolio -->
-  <a href="https://gonztyler.com" class="nav-logo" style="font-family: var(--display); font-size: 1.8rem; letter-spacing: 0.05em; text-decoration: none; color: var(--black);">
+  <!-- Logo now links to your Blog home screen -->
+  <a href="{{ '/' | relative_url }}" class="nav-logo" style="font-family: var(--display); font-size: 1.8rem; letter-spacing: 0.05em; text-decoration: none; color: var(--black);">
     G<span style="color: var(--rust);">_</span>T
   </a>
 
@@ -12,14 +12,13 @@
       </a>
     </li>
     <li>
-      <a href="https://gonztyler.com#projects" style="font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; text-decoration: none; color: var(--black);">
+      <a href="https://gonztyler.com" style="font-family: var(--mono); font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.15em; text-decoration: none; color: var(--black);">
         Portfolio
       </a>
     </li>
   </ul>
 
   <div class="nav-status" style="display: flex; align-items: center; gap: 0.5rem; font-size: 0.65rem; color: var(--gray); letter-spacing: 0.1em; font-family: var(--mono);">
-    <!-- The pulsing green dot inline -->
     <span style="width: 7px; height: 7px; border-radius: 50%; background: #22c55e;"></span>
     Writing
   </div>
