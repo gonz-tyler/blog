@@ -91,12 +91,15 @@ title: Home
     letter-spacing: 0.1em;
   }
 </style>
+<p class="font-size: clamp(2.5rem, 6vw, 4rem); font-family: var(--display)">
+  Welcome to my
+  <span class="font-family: var(--serif); color: var(--rust)">blog</span>!
+</p>
 
 <!-- SECTION 1: THE FEATURED POST -->
 <!-- Jekyll pulls the absolute newest post from your _posts folder -->
 {% if site.posts.size > 0 %} {% assign featured = site.posts.first %}
 <h2 class="page-heading">Latest Dispatch</h2>
-
 <a href="{{ featured.url | relative_url }}" class="featured-post-hero">
   <span class="featured-tag">✦ Newest Post</span>
   <h3 class="featured-title">{{ featured.title }}</h3>
